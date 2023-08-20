@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title%}Edit{% endblock title %}
+{% block content %}
+<!---заставка-->
+        <section class="tm-section-7 tm-section-mb" id="tm-section-7">
+            <div class="row">
+
+            </div>
+        </section>
+<!---->
+<form method="post" action="." class="contact-form" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="row mb-2">
+            <div class="form-group col-xl-6">
+                <input type="text" id="username" name="username" class="form-control" placeholder="Name" required/>
+            </div>
+            <div class="form-group col-xl-6">
+                <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required/>
+            </div>
+            <div class="form-group col-xl-6">
+                <input type="textarea" id="bio" name="bio" class="form-control" placeholder="About Me" required/>
+            </div>
+             <div class="form-group col-xl-6">
+                <input type="date" id="birth_date" name="birth_date" class="form-control" required/>
+            </div>
+            <div class="form-group col-xl-6">
+                <input type="text" id="location" name="location" class="form-control" placeholder="Address"/>
+            </div>
+            <div class="form-group col-xl-6">
+                <input type="file" name="upload" accept="avatars">
+            </div>
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                <div>
+                    <p>{{ error|escape }}</p>
+                </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+        <div class="form-group col-xl-6">
+            <button type="submit" class="btn  tm-btn-submit float-right btn-big">Save</button>
+        </div>
+            <div class="form-group col-xl-6">
+            <button type="submit" class="btn-small tm-btn-submit float-right">Delete</button>
+        </div>
+    </div>
+</form>
+
+{% endblock content %}

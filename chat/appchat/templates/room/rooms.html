@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} Чат Комнаты  {% endblock title %}
+{% block content %}
+<!---заставка-->
+<section class="tm-section-8 tm-section-mb" id="tm-section-8">
+    <div class="row">
+    </div>
+</section>
+<h2 class="text-center tm-text-gray">Chats</h2>
+<section class="tm-section-6" id="tm-section-6">
+    <div class="row">
+      <!--  -->
+      {% for room in rooms %}
+      <div class="col-lg-6 col-12">
+        <div class="shop-thumb">
+            <div class="shop-image-wrap">
+                <img src="{{ room.poster.url }}" class="shop-image img-fluid" style="width: 400px; height: 350px;" alt="">
+                    <span class="mb-5">
+                        
+                        <p>{{ room.name }}</p>
+                        <p>{{ room.description}}</p>
+                    </span>
+
+
+                <div class="shop-btn-wrap">
+                    <a href="{% url 'room' room.slug %}" class="shop-btn custom-btn btn d-flex align-items-center align-items-center">Открыть</a>
+                </div>
+                <br>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+      <!--  -->
+
+
+
+        <!-- {% for room in rooms %}
+        <div class="col-lg-3 col-md-4 col-sm-6 m-4">
+                <div class="card" style="width: 16rem;">
+                  <img class="card-img-top" src="{{ room.poster.url }}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ room.name }}</h5>
+                    <p class="card-text">{{ room.description}}</p>
+                    <a class="text-center tm-text-gray" href="{% url 'room' room.slug %}" >Connect</a>
+                  </div>
+                </div>
+        </div>
+        {% endfor %} -->
+
+
+        </div>
+</section>
+{% endblock content %}

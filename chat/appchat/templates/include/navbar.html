@@ -1,0 +1,85 @@
+<section class="tm-section-head" id="top">
+
+            <header id="header" class="text-center tm-text-gray">
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <title>Spider - Acanthoscurria geniculata</title>
+                <meta name="keywords" content="Brazilian white-knee tarantula, Acanthoscurria geniculata, паук-птицеед">
+                <meta name="description" content="Brazilian white-knee tarantula - large tarantula of the genus Acanthoscurria. Due to its solid size, bright contrasting coloring and excellent appetite, this spider becomes a decoration of any collection..">
+                <h1>Spider   Acanthoscurria geniculata</h1>
+                <p>HERE YOU CAN CHAT and buy a delicious lunch for a cutie
+                    <strong><a class="nav-link tm-text-gray" href="https://www.youtube.com/channel/UCCLye31f_uhGnJk3Vl1dYtg">my Channel youtube</a> </strong> 
+                </p>
+            </header>
+
+            <nav class="navbar narbar-light">
+                <a class="navbar-brand tm-text-gray" href="/">
+                    Menu
+                </a>
+                <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-navicon tm-fa-toggler-icon"></i>
+                    </span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="{% url 'frontpage' %}">Home</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="{% url 'about' %}">About</a>
+                        </li>
+                        {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="{% url 'rooms' %}">Chat</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="{% url 'me' %}">Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="/logout/">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="{% url 'signup' %}">SignUp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="/login/">SignIn</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="navbar navbar-default navbar-fixed-top">
+                <a href="/index.html" class="navbar-brand"></a>
+                <botton class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </botton>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="mydropdown">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+                    <li>
+                        <a href="/login">SignIn</a>
+                    </li>
+                    <li>
+                        <a  href="{% url 'rooms' %}">Chat</a>
+                    </li>
+                </ul>
+            </div>
+</section>

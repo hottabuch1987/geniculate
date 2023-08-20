@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}{{title}}{% endblock title %}
+{% block content %}
+<!---заставка-->
+        <section class="tm-section-4 tm-section-mb" id="tm-section-4">
+            <div class="row">
+
+            </div>
+        </section>
+<!---->
+        <section class="row" id="tm-section-1">
+            <div class="col-lg-12 tm-slider-col">
+                <div class="tm-img-slider">
+                    <div class="tm-img-slider-item" href="{% static 'img/09.51.10.png' %}">
+                        <p class="tm-slider-caption">Can you help me feed this cutie</p>
+                        <img src="{% static 'img/09.51.10.png' %}" alt="Image" class="tm-slider-img">
+                    </div>
+                    <div class="tm-img-slider-item" href="{% static 'img/09.50.48.png' %}">
+                        <p class="tm-slider-caption">Order a delicacy for her</p>
+                        <img src="{% static 'img/09.50.48.png' %}" alt="Image" class="tm-slider-img">
+                    </div>
+                    <div class="tm-img-slider-item" href="{% static 'img/acanthoscurria_geniculata_1.jpg' %}">
+                        <p class="tm-slider-caption">And I'll make a video for you</p>
+                        <img src="{% static 'img/acanthoscurria_geniculata_1.jpg' %}" alt="Image" class="tm-slider-img">
+                    </div>
+                    <div class="tm-img-slider-item" href="{% static 'img/spider.png' %}">
+                        <p class="tm-slider-caption">She loves to eat</p>
+                        <img src="{% static 'img/spider.png' %}" alt="Image" class="tm-slider-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tm-section-2 tm-section-mb" id="tm-section-2">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-lg-0 mb-md-5 mb-5 pr-md-5">
+                    <header class="text-center">
+                        <i class="fa fa-4x fa-power-off pl-5 pb-5 pr-5 pt-2"></i>
+                    </header>
+
+                    <h2>You can chat</h2>
+                    <p>and also I created this application so that you can chat and learn something interesting about the life of a beautiful girl.
+                    </p>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'rooms' %}" class="btn tm-btn-pad-2 float-right">Chats</a>
+                {% else %}
+                    <a href="{% url 'signup' %}" class="btn tm-btn-pad-2 float-right">SignUp</a>
+                {% endif %}
+
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-lg-0 mb-md-5 mb-5 pr-md-5">
+                    <header class="text-center">
+                        <i class="fa fa-4x fa-bolt pl-5 pb-5 pr-5 pt-2"></i>
+                    </header>
+                    <h2>Feed the pet</h2>
+                    <p>I am looking after a pretty creature and you can help me with this, my girl will be extremely grateful to you. You can buy a delicious lunch, write to me <a rel="nofollow" href="mailto:varvar1987a@mail.ru" target="_parent" class="tm-text-black"><strong>varvar1987a@mail.ru</strong></a>.
+                    </p>
+
+                {% if request.user.is_authenticated %}
+                    <a href="/logout/" class="btn tm-btn-pad-2 float-right">Logout</a>
+                {% else %}
+                    <a href="/rooms/" class="btn tm-btn-pad-2 float-right">Chat</a>
+                {% endif %}
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-12">
+                    <h2>Additional Information</h2>
+                    <p> This chat is for entertainment purposes only</p>
+                    <p> You can</p>
+                    <p>+ Help with food:
+                        Acanthoscurria geniculata is a large tarantula of the genus Acanthoscurria. I've been taking care of her for three years. My girl very angry, but loves to eat.
+                    </p>
+                    <p>+ Ask me a question:
+                        I will gladly answer you or take your advice
+                    </p>
+                    <p>+ And just chat.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+{% endblock content %}

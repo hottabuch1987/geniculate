@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% csrf_token %}
+{% block title%}My account{% endblock title %}
+{% block content %}
+<!---заставка-->
+<section class="tm-section-4 tm-section-mb" id="tm-section-4">
+    <div class="row">
+
+    </div>
+</section>
+<!---->
+<div class="col-xl-4 col-lg-4 col-md-12">
+    <h2>My account</h2>
+    {% if request.user.is_authenticated %}
+    <h4>{{user.username}}</h4>
+    <p>{{user.email}}</p>
+        {% if request.user.avatar %}
+    <img src="{{ user.avatar.url }}" class="shop-image img-fluid" alt="">
+        {% endif %}
+    <a class="btn" href="{% url 'edit' %}">Edit</a>
+    {% endif %}
+</div>
+
+{% endblock content %}

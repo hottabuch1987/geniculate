@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% csrf_token %}
+{% block title%}About{% endblock title %}
+{% block content %}
+<!---заставка-->
+        <section class="tm-section-9 tm-section-mb" id="tm-section-9">
+            <div class="row">
+
+            </div>
+        </section>
+<!---->
+
+<h2>Contact with me</h2>
+<section class="tm-section-6" id="tm-section-6">
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-xs-12">
+                    <div class="contact_message">
+                        <form method="post" action="." class="contact-form">
+                            {% csrf_token %}
+                            <div class="row mb-2">
+                                <div class="form-group col-xl-6">
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Name" required/>
+                                </div>
+                                <div class="form-group col-xl-6 pl-xl-1">
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" required/>
+                                </div>
+
+
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <textarea id="message" name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
+                                </div>
+                            </div>
+                            <!-- errors -->
+                            {% if form.errors %}
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+
+                                        <p>{{ error|escape }}</p>
+
+                                    {% endfor %}
+                                {% endfor %}
+                            {% endif %}
+                            <button type="submit" class="btn  tm-btn-submit float-right btn-big">Send</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-5 col-xs-12 tm-contact-right">
+                    <div class="tm-address-box">
+                        <h2 class="mb-4">Feedback</h2>
+                        <p class="mb-5">My pet named Julia.</p>
+                        <address>
+                            <a class="navbar-brand tm-text-gray" href="/login">Login</a>
+                            <br> You can leave comments about my girlfriend
+        
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock content %}

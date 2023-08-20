@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}SignUp{% endblock title %}
+{% block content %}
+<!---заставка-->
+        <section class="tm-section-7 tm-section-mb" id="tm-section-7">
+            <div class="row">
+
+            </div>
+        </section>
+<!---->
+<h2>SignUp</h2>
+<section class="tm-section-6" id="tm-section-6">
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-xs-12">
+                    <div class="contact_message">
+                        <form  method="post" action="." class="contact-form">
+                            {% csrf_token %}
+                            <div class="row mb-2">
+                                <div class="form-group col-xl-6">
+                                    <input type="text" id="username" name="username" class="form-control" placeholder="Name" required/>
+                                </div>
+                                <div class="form-group col-xl-6 pl-xl-1">
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" required/>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group col-xl-6 pl-xl-1">
+                                    <input type="password" id="password1" name="password1" class="form-control" placeholder="Password" required/>
+                                </div>
+
+                                <div class="form-group col-xl-6 pl-xl-1">
+                                    <input type="password" id="password12" name="password2" class="form-control" placeholder="Repeat password" required/>
+                                </div>
+                                <div class="form-group col-xl-6 pl-xl-1">
+                                    {{form.captcha}}
+                                </div>
+                            </div>
+                            <!-- errors -->
+                            {% if form.errors %}
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+
+                                        <p>{{ error|escape }}</p>
+
+                                    {% endfor %}
+                                {% endfor %}
+                            {% endif %}
+                            <button type="submit" class="btn  tm-btn-submit float-right btn-big">Send</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-5 col-xs-12 tm-contact-right">
+                    <div class="tm-address-box">
+                        <h2 class="mb-4"> Feedback</h2>
+                        <p class="mb-5">I am happy to help you if you have any questions.</p>
+                        <address>
+                            <a class="navbar-brand tm-text-gray" href="/login">Login</a>
+                            <p>Login via
+                                <a href="{% url 'social:begin' 'github' %}" class="navbar-brand tm-text-gray"> GitHub</a>
+                            </p>
+                            
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock content %}
+

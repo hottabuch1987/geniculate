@@ -1,0 +1,30 @@
+# Distribution / packaging
+.Python
+env/
+
+
+# pyenv
+.python-version
+
+
+
+# dotenv
+.env
+
+# virtualenv
+venv
+venv/
+ENV/
+
+
+
+
+
+# pycharm
+.idea/
+
+*.iml
+
+# sqlite
+*.sqlite
+*.sqlite3
